@@ -1,0 +1,161 @@
+Le chat dort près de la fenêtre.
+Le chien joue dans le jardin.
+Le petit chat observe les oiseaux.
+Un chien court dans le parc.
+Les animaux ont besoin de nourriture et d'eau.
+Le chat regarde la pluie tomber.
+Un oiseau construit son nid dans un arbre.
+Les poissons nagent dans une rivière.
+La tortue avance lentement sur le chemin.
+Le cheval traverse le champ au lever du soleil.
+Les abeilles visitent les fleurs du jardin.
+Un papillon se pose sur une feuille verte.
+Le renard cherche de la nourriture dans la forêt.
+Les animaux sauvages vivent dans différents environnements.
+Chaque espèce possède des caractéristiques particulières.
+
+La nature change au fil des saisons.
+Au printemps, les arbres produisent de nouvelles feuilles.
+En été, le soleil réchauffe la terre.
+En automne, les feuilles deviennent jaunes et rouges.
+En hiver, certaines régions reçoivent de la neige.
+La pluie nourrit les plantes et remplit les rivières.
+Les forêts abritent de nombreuses espèces.
+Les océans couvrent une grande partie de la planète.
+La pollution menace les écosystèmes naturels.
+Il est important de protéger les ressources naturelles.
+Les scientifiques étudient le fonctionnement du climat.
+Le vent déplace les nuages dans le ciel.
+Les montagnes sont parfois couvertes de neige.
+Le désert reçoit très peu de précipitations.
+Les plantes utilisent la lumière pour produire leur énergie.
+
+Un étudiant prépare ses cours chaque semaine.
+La lecture aide à découvrir de nouvelles idées.
+Une bibliothèque contient des livres de nombreux domaines.
+Les enseignants expliquent les notions difficiles avec des exemples.
+Les étudiants travaillent parfois en petits groupes.
+La pratique régulière améliore progressivement les compétences.
+Une question bien formulée facilite la résolution d'un problème.
+La curiosité encourage l'apprentissage continu.
+Il est utile de prendre des notes pendant un cours.
+Un projet demande une planification claire.
+Les objectifs doivent être définis avant le début du travail.
+Une équipe partage les tâches selon les compétences.
+La communication aide à résoudre les désaccords.
+Les erreurs sont des occasions d'apprendre.
+La patience permet de progresser sur les sujets difficiles.
+
+La programmation consiste à décrire des instructions pour un ordinateur.
+Un programme reçoit des données en entrée.
+Il effectue des opérations et produit un résultat.
+Python est un langage souvent utilisé en science des données.
+Une variable permet de conserver une valeur.
+Une fonction regroupe des instructions réutilisables.
+Une boucle répète une opération plusieurs fois.
+Une condition permet de choisir entre différentes actions.
+Une liste contient plusieurs éléments ordonnés.
+Un dictionnaire associe des clés à des valeurs.
+Une classe définit la structure d'un objet.
+Les tests vérifient le comportement d'un programme.
+Un débogueur aide à comprendre certaines erreurs.
+Un algorithme décrit une suite d'étapes pour résoudre un problème.
+La complexité permet d'estimer le coût d'un algorithme.
+Les structures de données organisent les informations.
+
+Une base de données conserve des informations de manière structurée.
+Une requête SQL permet de consulter des données.
+Les index peuvent accélérer certaines recherches.
+Une transaction regroupe plusieurs opérations cohérentes.
+Les sauvegardes aident à protéger les informations importantes.
+Un serveur reçoit des requêtes provenant de clients.
+Une application web utilise souvent une interface et un backend.
+Une API permet à plusieurs applications de communiquer.
+Le réseau transporte des messages entre les machines.
+Le chiffrement protège la confidentialité des échanges.
+Les développeurs utilisent Git pour suivre les modifications du code.
+Une branche permet de travailler sur une évolution séparément.
+La revue de code améliore la qualité du logiciel.
+Les tests automatisés réduisent le risque de régression.
+Les conteneurs facilitent la reproduction d'un environnement logiciel.
+
+L'intelligence artificielle étudie des méthodes permettant aux machines d'effectuer certaines tâches.
+L'apprentissage automatique utilise des données pour ajuster un modèle.
+Un modèle apprend des relations à partir d'exemples.
+Les données d'entraînement servent à ajuster les paramètres.
+Les données de validation aident à comparer plusieurs configurations.
+Les données de test évaluent les performances finales.
+Un modèle trop complexe peut mémoriser les exemples d'entraînement.
+Ce phénomène est appelé surapprentissage.
+La régularisation peut aider à limiter ce problème.
+La qualité des données influence fortement les résultats.
+Les valeurs manquantes doivent être étudiées avant l'entraînement.
+La normalisation transforme les valeurs selon une règle définie.
+La classification prédit une catégorie.
+La régression prédit une quantité numérique.
+Le regroupement cherche des groupes d'observations similaires.
+Les arbres de décision utilisent des règles successives.
+Une forêt aléatoire combine plusieurs arbres.
+La régression linéaire modélise une relation entre des variables.
+Un réseau de neurones contient des unités organisées en couches.
+Les poids du réseau sont ajustés pendant l'entraînement.
+Une fonction de perte mesure l'écart entre une prédiction et une cible.
+La descente de gradient permet d'ajuster les paramètres.
+Le taux d'apprentissage influence la taille des mises à jour.
+Une époque correspond à un passage sur les données d'entraînement.
+Un lot contient un sous-ensemble des exemples.
+
+Le traitement automatique du langage analyse les textes avec des méthodes informatiques.
+Un texte est composé de caractères, de mots ou de sous-mots.
+La tokenisation transforme le texte en unités manipulables.
+Un vocabulaire associe les tokens à des identifiants numériques.
+Un token inconnu peut être remplacé par un symbole spécial.
+Les embeddings représentent les tokens par des vecteurs.
+Deux vecteurs peuvent être comparés selon une mesure de similarité.
+Le contexte influence le sens de nombreux mots.
+Le mot banque peut désigner un établissement financier ou un bord de rivière.
+Une phrase donne des informations utiles pour interpréter les mots.
+La ponctuation contribue à organiser un texte.
+Les accents sont importants dans la langue française.
+Les mots rares posent des difficultés aux vocabulaires limités.
+La tokenisation en sous-mots réduit parfois ce problème.
+Les modèles de langage apprennent des régularités dans les séquences.
+Un modèle autorégressif prédit le prochain token à partir du contexte précédent.
+L'attention permet de combiner des informations provenant de plusieurs positions.
+Une requête est comparée à des clés pour calculer des scores.
+Les valeurs transportent l'information combinée par l'attention.
+Le masque causal empêche de consulter les positions futures.
+Le mécanisme de softmax transforme des scores en poids normalisés.
+Plusieurs têtes d'attention peuvent apprendre des relations différentes.
+Les embeddings positionnels apportent des informations sur l'ordre des tokens.
+RoPE encode les positions dans les requêtes et les clés.
+Le cache des clés et des valeurs évite certains calculs répétés.
+Un Transformer contient des blocs d'attention et des réseaux de neurones.
+L'entraînement ajuste les paramètres pour réduire la fonction de perte.
+La génération produit une séquence token après token.
+La température influence la distribution utilisée pour choisir le prochain token.
+Les modèles de langage peuvent produire des informations incorrectes.
+Il faut vérifier les réponses dans les contextes importants.
+
+La recherche d'information consiste à retrouver des documents pertinents.
+Un moteur de recherche classe les résultats selon différents critères.
+Un système de recommandation propose des éléments adaptés à un utilisateur.
+Les données personnelles doivent être traitées avec précaution.
+Un système fiable doit documenter ses limites.
+Une bonne interface rend les fonctionnalités plus faciles à comprendre.
+Les retours des utilisateurs aident à améliorer un produit.
+Une documentation claire facilite la maintenance.
+Une bonne architecture sépare les responsabilités.
+Le tokenizer ne doit pas modifier les identifiants après leur construction.
+Le même vocabulaire doit être utilisé pendant l'entraînement et l'inférence.
+Le modèle reçoit des séquences numériques plutôt que du texte brut.
+Les séquences peuvent être complétées pour former des lots de taille uniforme.
+Un masque de padding ignore les positions ajoutées artificiellement.
+Le masque causal et le masque de padding remplissent des rôles différents.
+Les dimensions des tenseurs doivent être vérifiées à chaque étape.
+Une multiplication matricielle exige des dimensions compatibles.
+La transposition échange les axes d'une matrice.
+Les gradients permettent d'ajuster les paramètres pendant l'apprentissage.
+Un petit modèle permet d'étudier les mécanismes fondamentaux.
+La pratique aide à transformer une idée en compétence.
+Une méthode rigoureuse améliore la confiance dans les résultats.

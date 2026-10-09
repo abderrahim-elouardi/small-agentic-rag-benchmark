@@ -1,3 +1,11 @@
+[project]
+name = "small-agentic-rag-benchmark"
+version = "0.1.0"
+dependencies = [
+    "torch>=2.14.1",
+    "torchvision>=0.29.1",
+]
+
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
