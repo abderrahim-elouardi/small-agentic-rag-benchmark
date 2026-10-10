@@ -1,0 +1,96 @@
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# ==============================
+# Environnements virtuels
+# ==============================
+.venv/
+venv/
+env/
+
+# ==============================
+# uv
+# ==============================
+# Conserver uv.lock pour la reproductibilité
+
+# ==============================
+# Tests et couverture
+# ==============================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ==============================
+# Type checking et lint
+# ==============================
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# ==============================
+# Jupyter
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# IDE et système
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Variables d'environnement et secrets
+# ==============================
+.env
+.env.*
+!.env.example
+!.env.template
+
+# ==============================
+# Logs
+# ==============================
+*.log
+logs/
+
+# ==============================
+# Modèles entraînés et checkpoints
+# ==============================
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.joblib
+
+# ==============================
+# Données générées
+# ==============================
+data/processed/
+data/interim/
+
+# ==============================
+# MLflow et entraînement
+# ==============================
+mlruns/
+mlartifacts/
+lightning_logs/
+
+# ==============================
+# Fichiers temporaires
+# ==============================
+*.tmp
+*.temp

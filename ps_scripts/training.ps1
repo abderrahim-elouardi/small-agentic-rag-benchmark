@@ -1,0 +1,2 @@
+$env:PYTHONPATH = "$PWD\src" 
+& c:\Users\HP\Documents\projects\small-agentic-rag-benchmark\.venv\Scripts\python.exe c:/Users/HP/Documents/projects/small-agentic-rag-benchmark/src/small_agentic_rag/model_lab/train.py

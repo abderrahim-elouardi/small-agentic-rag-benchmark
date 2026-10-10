@@ -1,59 +1,66 @@
-import torch 
 
-def apply_rope(x , position):
+import torch
+
+
+def apply_rope(x: torch.Tensor, position: torch.Tensor | None = None):
     """
-    x         : tenseur de forme (seq_len, d_model)
-    positions : positions des tokens, de forme (seq_len,)
+    Applique Rotary Positional Embedding (RoPE).
+
+    Args:
+        x: tenseur de forme (L, d_k) ou (B, L, d_k).
+        position: positions des tokens, de forme (L,).
+
+    Returns:
+        Un tenseur de même forme que x.
     """
+    if x.ndim not in (2, 3):
+        raise ValueError(
+            "x doit avoir 2 dimensions (L, d_k) "
+            "ou 3 dimensions (B, L, d_k)."
+        )
 
-    seq_len , d_model = x.shape
+    seq_len = x.shape[-2]
+    d_k = x.shape[-1]
 
-    # Une dimension paire est necessaire
-    assert d_model % 2 == 0
+    if d_k % 2 != 0:
+        raise ValueError("d_k doit être pair pour appliquer RoPE.")
 
-    # Indices des paires : 0 , 2 , 4 , ...
-    i = torch.arange(0,d_model , 2 , dtype=torch.float32)
+    if position is None:
+        position = torch.arange(seq_len, device=x.device)
+    else:
+        position = position.to(device=x.device)
 
-    # Frequences de Rope : theta_i = 10000^(-2i/d_model)
-    theta = 1.0 / ( 10000 ** (i / d_model))
+    if position.ndim != 1 or position.shape[0] != seq_len:
+        raise ValueError(
+            "position doit être un vecteur de longueur égale à L."
+        )
 
-    # Angle de rotation pour chaque position et chaque paire
+    # Calcul des fréquences pour chaque paire de dimensions
+    i = torch.arange(0, d_k, 2, device=x.device, dtype=torch.float32)
+    theta = 1.0 / (10000.0 ** (i / d_k))
+
+    # Forme : (L, d_k // 2)
     angles = position.float().unsqueeze(1) * theta.unsqueeze(0)
 
-    cos = torch.cos(angles)
-    sin = torch.sin(angles)
+    cos = angles.cos().to(dtype=x.dtype)
+    sin = angles.sin().to(dtype=x.dtype)
 
-    # Separer les deux composanres de chaque paire
-    x1 = x[:, 0::2]
-    x2 = x[:, 1::2]
+    # Pour un batch, ajouter la dimension batch : (1, L, d_k // 2)
+    if x.ndim == 3:
+        cos = cos.unsqueeze(0)
+        sin = sin.unsqueeze(0)
 
-    # Appliquer la rotation 
-    rotated_x1 = x1 * cos - x2 *sin
-    rotated_x2 = x1 * sin + x2 *cos
+    # Séparer les composantes paires et impaires
+    x1 = x[..., 0::2]
+    x2 = x[..., 1::2]
 
+    # Appliquer la rotation à chaque paire
+    rotated_x1 = x1 * cos - x2 * sin
+    rotated_x2 = x1 * sin + x2 * cos
 
-    # Reassembler les paires dnas l'ordre initial 
-    result  = torch.stack(
-        [rotated_x1 , rotated_x2] , dim = -1
-    ).flatten(start_dim=1)
+    # Reconstituer la dernière dimension
+    result = torch.stack(
+        (rotated_x1, rotated_x2), dim=-1
+    ).flatten(start_dim=-2)
 
     return result
-
-# Exemple : 3 tokens, embeddings de dimension 4
-x = torch.tensor([
-    [1.0, 0.0, 1.0, 0.0],
-    [1.0, 0.0, 1.0, 0.0],
-    [1.0, 0.0, 1.0, 0.0]
-])
-
-positions = torch.arange(3)
-
-result = apply_rope(x, positions)
-
-print("Embeddings initiaux :")
-print(x)
-
-print("\nEmbeddings après RoPE :")
-print(result)
-
-        
