@@ -1,69 +1,46 @@
 
-from collections import Counter
 from pathlib import Path
-
-# Charger le corpus
-corpus_path = (
-    Path("src")
-    / "small_agentic_rag"
-    / "data"
-    / "corpus.txt"
-)
-
-with corpus_path.open("r", encoding="utf-8") as f:
-    corpus = [line.strip().lower() for line in f if line.strip()]
-
-# Construire le vocabulaire
-all_tokens = []
-for line in corpus:
-    all_tokens.extend(line.split())
-
-counter = Counter(all_tokens)
-
-special_tokens = ["<unk>", "<eos>"]
-
-vocab = {
-    token: idx
-    for idx, token in enumerate(special_tokens)
-}
-
-# Tri pour rendre la construction reproductible
-for token, _ in sorted(counter.items()):
-    if token not in vocab:
-        vocab[token] = len(vocab)
-
-vocab_size = len(vocab)
-
-# Vocabulaire inverse : identifiant -> token
-id_to_token = {
-    idx: token for token, idx in vocab.items()
-}
+from tokenizers import Tokenizer
 
 
-def encode(text: str) -> list[int]:
-    tokens = text.lower().split()
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
-    ids = [
-        vocab.get(token, vocab["<unk>"])
-        for token in tokens
-    ]
+CORPUS_PATH = PROJECT_ROOT /"src"/"small_agentic_rag" /"data" / "corpus.txt"
+TOKENIZER_PATH = PROJECT_ROOT / "models" / "tokenizer.json"
 
-    return ids
-
-
-def decode(token_ids: list[int]) -> str:
-    return " ".join(
-        id_to_token.get(idx, "<unk>")
-        for idx in token_ids
+if not CORPUS_PATH.exists():
+    raise FileNotFoundError(
+        f"Corpus introuvable : {CORPUS_PATH}"
     )
 
+if not TOKENIZER_PATH.exists():
+    raise FileNotFoundError(
+        "Tokenizer BPE introuvable. "
+        "Exécute d'abord train_tokenizer.py."
+    )
 
-# Ajouter EOS à chaque ligne pour marquer sa fin
-all_ids = []
+# Charger le corpus
+text = CORPUS_PATH.read_text(encoding="utf-8")
 
-for line in corpus:
-    all_ids.extend(encode(line))
-    all_ids.append(vocab["<eos>"])
+if not text.strip():
+    raise ValueError("Le corpus est vide.")
 
-print("Taille du vocabulaire :", vocab_size)
-print("Nombre total de tokens :", len(all_ids))
+# Charger le tokenizer déjà entraîné
+tokenizer = Tokenizer.from_file(str(TOKENIZER_PATH))
+
+# Construire le vocabulaire et les identifiants
+vocab = tokenizer.get_vocab()
+vocab_size = tokenizer.get_vocab_size()
+
+# Encoder le corpus
+all_ids = tokenizer.encode(text).ids
+
+# Dictionnaire inverse utile pour l'inspection
+id_to_token = {
+    idx: token
+    for token, idx in vocab.items()
+}
+
+print(f"Taille du vocabulaire BPE : {vocab_size:,}")
+print(f"Nombre total de tokens : {len(all_ids):,}")
+print(f"Exemple d'encodage : {all_ids[:30]}")

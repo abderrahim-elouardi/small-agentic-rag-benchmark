@@ -94,3 +94,6 @@ lightning_logs/
 # ==============================
 *.tmp
 *.temp
+
+.src/small_agentic_rag/data/corpus.txt
+.models/tokenizer.json
