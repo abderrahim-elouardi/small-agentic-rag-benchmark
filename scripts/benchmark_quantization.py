@@ -55,7 +55,8 @@ def benchmark_configuration(
         torch.cuda.max_memory_allocated() / 1024**3
     )
 
-    generator = TextGenerator(model=model, tokenizer=tokenizer)
+    generator = TextGenerator(model=model, tokenizer=tokenizer , device="cuda")
+    
 
     # Warm-up: exclude this generation from the measurements.
     for _ in range(WARMUP_RUNS):
