@@ -21,7 +21,8 @@ from small_agentic_rag.llm.quantization import QuantizationConfig
 # Experiment configuration
 # --------------------------------------------------
 
-MODEL_NAME = "Qwen/Qwen2.5-0.5B-Instruct"
+MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
+
 
 PROMPT = "Explain briefly what a language model is."
 MAX_NEW_TOKENS = 80
